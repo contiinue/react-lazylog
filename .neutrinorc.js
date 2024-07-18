@@ -1,3 +1,5 @@
+const { Neutrino } = require('neutrino');
+
 module.exports = {
   use: [
     'neutrino-preset-mozilla-frontend-infra/styleguide',
@@ -13,6 +15,17 @@ module.exports = {
       if (neutrino.options.command === 'styleguide:start') {
         neutrino.config.module.rules.delete('lint');
       }
+
+      neutrino.use('@neutrinojs/eslint', {
+        extends: [
+          'eslint:recommended',
+          'plugin:prettier/recommended'
+        ],
+        plugins: ['prettier'],
+        rules: {
+          'prettier/prettier': 'error'
+        }
+      });
     },
   ],
 };

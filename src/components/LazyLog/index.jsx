@@ -679,7 +679,7 @@ export default class LazyLog extends Component {
         <Line
           className={lineClassName}
           highlightClassName={highlightLineClassName}
-          data={[{ bold: true, text: 'No filter matches' }]}
+          data={[{ bold: true, text: 'Не найдено' }]}
         />
       );
     }

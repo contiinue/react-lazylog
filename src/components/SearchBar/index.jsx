@@ -44,6 +44,7 @@ export default class SearchBar extends Component {
     onSearch: () => {},
     onClearSearch: () => {},
     onFilterLinesWithMatches: () => {},
+    onDownloadLog: () => {},
     resultsCount: 0,
     filterActive: false,
     disabled: false,
@@ -82,7 +83,6 @@ export default class SearchBar extends Component {
 
   render() {
     const { resultsCount, filterActive, disabled } = this.props;
-    const matchesLabel = `match${resultsCount === 1 ? '' : 'es'}`;
     const filterIcon = filterActive ? active : inactive;
 
     return (
@@ -91,7 +91,7 @@ export default class SearchBar extends Component {
           autoComplete="off"
           type="text"
           name="search"
-          placeholder="Search"
+          placeholder="Поиск"
           className={`react-lazylog-searchbar-input ${searchInput}`}
           onChange={this.handleSearchChange}
           onKeyPress={this.handleSearchKeyPress}
@@ -110,7 +110,7 @@ export default class SearchBar extends Component {
           className={`react-lazylog-searchbar-matches ${
             resultsCount ? 'active' : 'inactive'
           } ${resultsCount ? active : inactive}`}>
-          {resultsCount} {matchesLabel}
+          {resultsCount} найдено
         </span>
       </div>
     );
